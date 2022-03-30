@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: liatrio-demo
+spec:
+  selector:
+    matchLabels:
+      app: liatrio-demo
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: liatrio-demo
+    spec:
+      containers:
+      - name: liatrio-demo
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
