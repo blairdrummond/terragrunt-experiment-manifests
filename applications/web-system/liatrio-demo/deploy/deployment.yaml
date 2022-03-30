@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: liatrio-demo
-        image: nginx:1.14.2
+        image: liatrio-demo
         ports:
-        - containerPort: 80
+        - containerPort: 8000

@@ -1,0 +1,7 @@
+apiVersion: shipwright.io/v1alpha1
+kind: Build
+metadata:
+  name: "build-main"
+spec:
+  source:
+    revision: main

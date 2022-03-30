@@ -1,0 +1,54 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: shipwright-build
+
+namePrefix: "liatrio-demo-"
+
+resources:
+- main/
+- v0.1.0/
+# Rebuild CronJob
+- cleanup-job.yaml
+- cleanup-job-rbac.yaml
+
+patches:
+  - patch: |-
+      apiVersion: shipwright.io/v1alpha1
+      kind: BuildRun
+      metadata:
+        name: not-used
+      spec:
+        buildRef:
+          name: liatrio-demo-build
+        serviceAccount:
+          generate: true
+        output:
+          credentials:
+            name: registry-write
+    target:
+      group: shipwright.io
+      kind: BuildRun
+
+  - patch: |-
+      apiVersion: shipwright.io/v1alpha1
+      kind: Build
+      metadata:
+        name: not-used
+        annotations:
+          build.shipwright.io/build-run-deletion: "true"
+      spec:
+        source:
+          url: https://github.com/blairdrummond/terragrunt-experiment-demo-app.git
+          credentials:
+            name: github-token
+          contextDir: .
+        strategy:
+          name: kaniko-trivy
+          kind: ClusterBuildStrategy
+        dockerfile: Dockerfile
+        output:
+          image: docker.io/blairdrummond/liatrio-demo
+    target:
+      group: shipwright.io
+      kind: Build

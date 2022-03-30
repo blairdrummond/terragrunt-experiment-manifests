@@ -6,8 +6,13 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 spec:
+  clusterResourceBlacklist:
+  - group: '*'
+    kind: '*'
   destinations:
   - namespace: 'web-system'
+    server: '*'
+  - namespace: 'shipwright-build'
     server: '*'
   sourceRepos:
   - 'https://github.com/blairdrummond/terragrunt-experiment-manifests.git'

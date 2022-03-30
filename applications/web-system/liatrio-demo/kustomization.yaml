@@ -1,8 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: web-system
-
 resources:
-- deployment.yaml
-- service.yaml
+- build
+- deploy
+
+images:
+- name: liatrio-demo
+  newName: docker.io/blairdrummond/liatrio-demo
+  newTag: v0.1.0
