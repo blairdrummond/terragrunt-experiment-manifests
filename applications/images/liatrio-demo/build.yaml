@@ -6,7 +6,7 @@ metadata:
     build.shipwright.io/build-run-deletion: "true"
 spec:
   source:
-    url: git@github.com:blairdrummond/terragrunt-experiment-demo-app.git
+    url: https://github.com/blairdrummond/terragrunt-experiment-demo-app.git
     credentials:
       name: github-token
     revision: main
