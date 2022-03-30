@@ -17,7 +17,6 @@ spec:
   sourceRepos:
   - 'git@github.com:blairdrummond/terragrunt-experiment-manifests.git'
   - 'https://github.com/blairdrummond/terragrunt-experiment-manifests.git'
-  - 'https://github.com/blairdrummond/happylittlecloud.ca.git'
   roles:
   # A role which provides read-only access to all applications in the project
   - name: read-only
@@ -38,7 +37,7 @@ spec:
   generators:
   - list:
       elements:
-      - app: s3-sync
+      - app: liatrio-demo
   template:
     metadata:
       name: 'images-{{app}}'
@@ -46,7 +45,7 @@ spec:
     spec:
       project: images
       source:
-        repoURL: https://github.com/blairdrummond/happylittlecloud.ca.git
+        repoURL: https://github.com/blairdrummond/terragrunt-experiment-manifests.git
         targetRevision: HEAD
         path: applications/images/{{app}}
       destination:

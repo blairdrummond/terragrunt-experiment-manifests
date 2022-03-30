@@ -1,0 +1,19 @@
+apiVersion: shipwright.io/v1alpha1
+kind: Build
+metadata:
+  name: build
+  annotations:
+    build.shipwright.io/build-run-deletion: "true"
+spec:
+  source:
+    url: git@github.com:blairdrummond/terragrunt-experiment-demo-app.git
+    credentials:
+      name: github-token
+    revision: main
+    contextDir: .
+  strategy:
+    name: kaniko-trivy
+    kind: ClusterBuildStrategy
+  dockerfile: Dockerfile
+  output:
+    image: docker.io/blairdrummond/liatrio-demo

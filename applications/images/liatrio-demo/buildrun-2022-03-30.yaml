@@ -1,0 +1,7 @@
+apiVersion: shipwright.io/v1alpha1
+kind: BuildRun
+metadata:
+  name: "2022-03-30"
+spec:
+  output:
+    image: docker.io/blairdrummond/liatrio-demo:2022-03-30
