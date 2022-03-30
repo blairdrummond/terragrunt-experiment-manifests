@@ -16,6 +16,7 @@ spec:
     server: '*'
   sourceRepos:
   - 'git@github.com:blairdrummond/terragrunt-experiment-manifests.git'
+  - 'https://github.com/blairdrummond/terragrunt-experiment-manifests.git'
   - 'https://github.com/blairdrummond/happylittlecloud.ca.git'
   roles:
   # A role which provides read-only access to all applications in the project
