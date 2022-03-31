@@ -10,6 +10,9 @@ spec:
     spec:
       template:
         spec:
+          automountServiceAccountToken: true
+          serviceAccount: cleanup
+          serviceAccountName: cleanup
           containers:
           - name: kubectl-cleanup
             image: bitnami/kubectl
