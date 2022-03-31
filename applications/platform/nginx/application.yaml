@@ -17,8 +17,8 @@ spec:
         controller:
           service:
             annotations:
-              service.beta.kubernetes.io/do-loadbalancer-name: happylittlecloud
-              service.beta.kubernetes.io/do-loadbalancer-hostname: workaround.happylittlecloud.ca
+              service.beta.kubernetes.io/do-loadbalancer-name: liatrio-demo
+              service.beta.kubernetes.io/do-loadbalancer-hostname: workaround.happylittlecloud.xyz
               service.beta.kubernetes.io/do-loadbalancer-enable-proxy-protocol: "false"
               service.beta.kubernetes.io/do-loadbalancer-http-ports: "80"
               service.beta.kubernetes.io/do-loadbalancer-tls-ports: "443"
