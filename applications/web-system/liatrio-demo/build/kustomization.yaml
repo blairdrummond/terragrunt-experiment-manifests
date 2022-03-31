@@ -17,8 +17,6 @@ patches:
       metadata:
         name: not-used
       spec:
-        buildRef:
-          name: liatrio-demo-build
         serviceAccount:
           generate: true
         output:
