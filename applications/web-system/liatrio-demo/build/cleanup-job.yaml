@@ -13,8 +13,8 @@ spec:
           containers:
           - name: kubectl-cleanup
             image: bitnami/kubectl
+            command: ["/bin/sh"]
             args:
-            - /bin/sh
             - -c
             - |
                 kubectl get buildruns.shipwright.io \
