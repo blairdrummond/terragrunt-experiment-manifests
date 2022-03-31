@@ -1,7 +1,9 @@
 apiVersion: shipwright.io/v1alpha1
 kind: BuildRun
 metadata:
-  name: "buildrun-main"
+  name: "liatrio-demo-buildrun-main"
 spec:
+  buildRef:
+    name: "liatrio-demo-build-main"
   output:
     image: docker.io/blairdrummond/liatrio-demo:latest
