@@ -17,3 +17,10 @@ spec:
         image: liatrio-demo
         ports:
         - containerPort: 8000
+        resources:
+          requests:
+            memory: "500Mi"
+            cpu: "250m"
+          limits:
+            memory: "500Mi"
+            cpu: "250m"
