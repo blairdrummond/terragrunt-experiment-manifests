@@ -9,3 +9,5 @@ resources:
 # Auto refresh images
 - refresh-imago.yaml
 - refresh-imago-rbac.yaml
+# Ingress
+- ingress.yaml

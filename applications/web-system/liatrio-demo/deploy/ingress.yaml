@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: liatrio
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+      - liatrio-demo.happylittlecloud.xyz
+    secretName: testsecret-tls
+  rules:
+  - host: liatrio-demo.happylittlecloud.xyz
+    http:
+      paths:
+      - path: /
+        backend:
+          service:
+            name: liatrio-demo
+            port:
+              number: 80
